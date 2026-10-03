@@ -1,0 +1,197 @@
+[
+  {
+    "id": 1,
+    "question": "內閣制最主要的制度特色是？",
+    "options": [
+      {"key": "A", "text": "行政、立法融合"},
+      {"key": "B", "text": "行政、立法分立"},
+      {"key": "C", "text": "司法主導行政"},
+      {"key": "D", "text": "總統直接立法"}
+    ],
+    "correctAnswer": "A",
+    "timeLimit": 20,
+    "image": null
+  },
+  {
+    "id": 2,
+    "question": "總統制的核心設計是？",
+    "options": [
+      {"key": "A", "text": "國會組成內閣"},
+      {"key": "B", "text": "行政、立法分立"},
+      {"key": "C", "text": "閣揆掌握國會"},
+      {"key": "D", "text": "國會選出總統"}
+    ],
+    "correctAnswer": "B",
+    "timeLimit": 20,
+    "image": null
+  },
+  {
+    "id": 3,
+    "question": "半總統制結合哪兩種制度特色？",
+    "options": [
+      {"key": "A", "text": "君主制＋內閣制"},
+      {"key": "B", "text": "聯邦制＋總統制"},
+      {"key": "C", "text": "總統制＋內閣制"},
+      {"key": "D", "text": "單一制＋聯邦制"}
+    ],
+    "correctAnswer": "C",
+    "timeLimit": 20,
+    "image": null
+  },
+  {
+    "id": 4,
+    "question": "政務官與事務官最大的差異之一是？",
+    "options": [
+      {"key": "A", "text": "是否領薪水"},
+      {"key": "B", "text": "是否屬行政機關"},
+      {"key": "C", "text": "是否具有專業"},
+      {"key": "D", "text": "任用方式與任期"}
+    ],
+    "correctAnswer": "D",
+    "timeLimit": 20,
+    "image": null
+  },
+  {
+    "id": 5,
+    "question": "政務官與事務官彼此競爭政策主導權，屬哪一模式？",
+    "options": [
+      {"key": "A", "text": "敵對模式"},
+      {"key": "B", "text": "功能模式"},
+      {"key": "C", "text": "村落生活模式"},
+      {"key": "D", "text": "正式法律模式"}
+    ],
+    "correctAnswer": "A",
+    "timeLimit": 20,
+    "image": null
+  },
+  {
+    "id": 6,
+    "question": "「鐵三角」在彼得斯分類中屬哪一模式？",
+    "options": [
+      {"key": "A", "text": "敵對模式"},
+      {"key": "B", "text": "功能模式"},
+      {"key": "C", "text": "行政國家模式"},
+      {"key": "D", "text": "正式法律模式"}
+    ],
+    "correctAnswer": "B",
+    "timeLimit": 20,
+    "image": null
+  },
+  {
+    "id": 7,
+    "question": "立法院審查政府總預算，主要屬於哪種權力？",
+    "options": [
+      {"key": "A", "text": "司法權"},
+      {"key": "B", "text": "考試權"},
+      {"key": "C", "text": "預算審議監督"},
+      {"key": "D", "text": "行政命令權"}
+    ],
+    "correctAnswer": "C",
+    "timeLimit": 20,
+    "image": null
+  },
+  {
+    "id": 8,
+    "question": "重要政府人事任命須經立法院同意，稱為？",
+    "options": [
+      {"key": "A", "text": "人事考試權"},
+      {"key": "B", "text": "彈劾權"},
+      {"key": "C", "text": "預算權"},
+      {"key": "D", "text": "人事同意權"}
+    ],
+    "correctAnswer": "D",
+    "timeLimit": 20,
+    "image": null
+  },
+  {
+    "id": 9,
+    "question": "下列何者不屬於「鐵三角」？",
+    "options": [
+      {"key": "A", "text": "新聞媒體"},
+      {"key": "B", "text": "利益團體"},
+      {"key": "C", "text": "國會相關委員會"},
+      {"key": "D", "text": "行政機關"}
+    ],
+    "correctAnswer": "A",
+    "timeLimit": 20,
+    "image": null
+  },
+  {
+    "id": 10,
+    "question": "下列何者是民意表達的正式途徑？",
+    "options": [
+      {"key": "A", "text": "網路留言"},
+      {"key": "B", "text": "公民投票"},
+      {"key": "C", "text": "新聞評論"},
+      {"key": "D", "text": "社群貼文"}
+    ],
+    "correctAnswer": "B",
+    "timeLimit": 20,
+    "image": null
+  },
+  {
+    "id": 11,
+    "question": "審議民主最重視下列何者？",
+    "options": [
+      {"key": "A", "text": "意見數量最多"},
+      {"key": "B", "text": "決策速度最快"},
+      {"key": "C", "text": "公開且相互辯證"},
+      {"key": "D", "text": "專家單獨決策"}
+    ],
+    "correctAnswer": "C",
+    "timeLimit": 20,
+    "image": null
+  },
+  {
+    "id": 12,
+    "question": "解讀民意調查時，最需注意什麼？",
+    "options": [
+      {"key": "A", "text": "政黨名稱"},
+      {"key": "B", "text": "媒體數量"},
+      {"key": "C", "text": "官員職位"},
+      {"key": "D", "text": "抽樣與問題設計"}
+    ],
+    "correctAnswer": "D",
+    "timeLimit": 20,
+    "image": null
+  },
+  {
+    "id": 13,
+    "question": "下列何者不是行政法的三大法源？",
+    "options": [
+      {"key": "A", "text": "政黨政綱"},
+      {"key": "B", "text": "憲法"},
+      {"key": "C", "text": "法律"},
+      {"key": "D", "text": "行政命令"}
+    ],
+    "correctAnswer": "A",
+    "timeLimit": 20,
+    "image": null
+  },
+  {
+    "id": 14,
+    "question": "良知行政者除「回應、效率」外，還應重視？",
+    "options": [
+      {"key": "A", "text": "權力與服從"},
+      {"key": "B", "text": "效能與公平"},
+      {"key": "C", "text": "選舉與民調"},
+      {"key": "D", "text": "宣傳與媒體"}
+    ],
+    "correctAnswer": "B",
+    "timeLimit": 20,
+    "image": null
+  },
+  {
+    "id": 15,
+    "question": "請問電影「國四英雄傳」的男主角（如下圖）是？\n（提示：北大行政系一位非常帥的教授）",
+    "options": [
+      {"key": "A", "text": "郭富城"},
+      {"key": "B", "text": "彭于晏"},
+      {"key": "C", "text": "黃朝盟"},
+      {"key": "D", "text": "吳彥祖"}
+    ],
+    "correctAnswer": "C",
+    "timeLimit": 20,
+    "image": "/static/images/q15_photo.png"
+  }
+]
