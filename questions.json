@@ -207,8 +207,22 @@
   "timeLimit": 20,
   "image": null
 },
+
 {
-	"id": 17,
+  "id": 17,
+  "question": "下列各項法規何者是行政規則？",
+  "options": [
+    {"key": "A", "text": "中華民國憲法增修條文"},
+    {"key": "B", "text": "公民與政治權利國際公約及經濟社會文化權利國際公約施行法"},
+    {"key": "C", "text": "大成至聖先師孔子奉祀及紀念要點"},
+    {"key": "D", "text": "國葬法"}
+  ],
+  "correctAnswer": "C",
+  "timeLimit": 20,
+  "image": null
+},
+{
+	"id": 18,
     "question": "請問電影「國四英雄傳」的男主角（如下圖）是？\n（提示：北大行政系一位非常帥的教授）",
     "options": [
       {"key": "A", "text": "郭富城"},
