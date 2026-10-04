@@ -182,7 +182,33 @@
     "image": null
   },
   {
-    "id": 15,
+    {
+  "id": 15,
+  "question": "自我國民主化以來，總統與國會多數分屬不同政黨的情形所在多有，請選出下列何者，總統與行政院長分屬不同政黨。",
+  "options": [
+    {"key": "A", "text": "陳水扁、唐飛"},
+    {"key": "B", "text": "李登輝、連戰"},
+    {"key": "C", "text": "蔡英文、蘇貞昌"},
+    {"key": "D", "text": "馬英九、張善政"}
+  ],
+  "correctAnswer": "A",
+  "timeLimit": 20,
+  "image": null
+},
+{
+  "id": 16,
+  "question": "下列何者權力配對錯誤？",
+  "options": [
+    {"key": "A", "text": "考試院－公務人員撫卹"},
+    {"key": "B", "text": "監察院－彈劾權"},
+    {"key": "C", "text": "立法院－左勾拳"},
+    {"key": "D", "text": "行政院－行政權"}
+  ],
+  "correctAnswer": "C",
+  "timeLimit": 20,
+  "image": null
+},
+	"id": 17,
     "question": "請問電影「國四英雄傳」的男主角（如下圖）是？\n（提示：北大行政系一位非常帥的教授）",
     "options": [
       {"key": "A", "text": "郭富城"},
