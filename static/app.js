@@ -4,6 +4,7 @@ class QuizApp {
     constructor() {
         this.role = null; // 'host' | 'player'
         this.pin = null;
+	this.roomId = null;
         this.hostId = null;
         this.playerId = null;
         this.nickname = null;
@@ -27,6 +28,8 @@ class QuizApp {
         // Parse URL params (e.g. ?pin=123456)
         const urlParams = new URLSearchParams(window.location.search);
         const pinFromUrl = urlParams.get('pin');
+	const roomFromUrl = urlParams.get('room');
+	if (roomFromUrl) this.roomId = roomFromUrl;
         if (pinFromUrl) {
             const inputPin = document.getElementById('input-pin');
             if (inputPin) {
@@ -40,10 +43,10 @@ class QuizApp {
     }
 
     checkExistingSession() {
-        const savedRole = localStorage.getItem('qb_role');
-        const savedPin = localStorage.getItem('qb_pin');
+        const savedRole = sessionStorage.getItem('qb_role');
+        const savedPin = localStorage.getItem('qb_pin'); // player PIN stays in localStorage
         const savedPlayerId = localStorage.getItem('qb_player_id');
-        const savedHostId = localStorage.getItem('qb_host_id');
+        const savedHostId = sessionStorage.getItem('qb_host_id');
         const savedNickname = localStorage.getItem('qb_nickname');
 
         if (savedRole === 'player' && savedPin && savedPlayerId) {
@@ -59,19 +62,19 @@ class QuizApp {
                     player_id: this.playerId
                 });
             });
-        } else if (savedRole === 'host' && savedPin && savedHostId) {
-            // Host might be reconnecting
-            this.role = 'host';
-            this.pin = savedPin;
-            this.hostId = savedHostId;
-            this.connectWebSocket(() => {
-                this.sendWS({
-                    type: 'host_reconnect',
-                    pin: this.pin,
-                    host_id: this.hostId
-                });
-            });
-        }
+        } else if (savedRole === 'host') {
+    sessionStorage.removeItem('qb_role');
+    sessionStorage.removeItem('qb_host_id');
+    sessionStorage.removeItem('qb_pin');
+    sessionStorage.removeItem('qb_room_id');
+
+    this.role = null;
+    this.pin = null;
+    this.roomId = null;
+    this.hostId = null;
+
+    this.switchView('view-home');
+}
     }
 
     switchView(viewId) {
@@ -160,7 +163,7 @@ class QuizApp {
 
     startAsHost() {
         this.role = 'host';
-        localStorage.setItem('qb_role', 'host');
+        sessionStorage.setItem('qb_role', 'host');
         this.connectWebSocket(() => {
             this.sendWS({ type: 'create_room' });
         });
@@ -170,6 +173,11 @@ class QuizApp {
         event.preventDefault();
         const pinInput = document.getElementById('input-pin').value.trim();
         const nicknameInput = document.getElementById('input-nickname').value.trim();
+	const originalPinFromUrl = new URLSearchParams(window.location.search).get('pin');
+
+	if (originalPinFromUrl && pinInput !== originalPinFromUrl) {
+    	this.roomId = null;
+	}
 
         if (!pinInput || pinInput.length < 5) {
             this.showToast("請輸入正確的 6 位數 Game PIN");
@@ -191,11 +199,12 @@ class QuizApp {
 
         this.connectWebSocket(() => {
             this.sendWS({
-                type: 'join_room',
-                pin: this.pin,
-                nickname: this.nickname,
-                player_id: savedPlayerId
-            });
+    		type: 'join_room',
+    		pin: this.pin,
+    		room_id: this.roomId || '',
+    		nickname: this.nickname,
+    		player_id: savedPlayerId
+	});
         });
     }
 
@@ -335,7 +344,9 @@ class QuizApp {
         if (!base) base = window.location.origin;
         base = base.replace(/\/+$/, '');
 
-        const joinUrl = `${base}/?pin=${this.pin}`;
+        const joinUrl = this.roomId
+    ? `${base}/?pin=${encodeURIComponent(this.pin)}&room=${encodeURIComponent(this.roomId)}`
+    : `${base}/?pin=${encodeURIComponent(this.pin)}`;
 
         const qrImg = document.getElementById('host-qr-img');
         if (qrImg) {
@@ -427,10 +438,17 @@ class QuizApp {
     }
 
     onRoomCreated(data) {
-        this.pin = data.pin;
-        this.hostId = data.host_id;
-        localStorage.setItem('qb_host_id', this.hostId);
-        localStorage.setItem('qb_pin', this.pin);
+    this.pin = data.pin;
+    this.hostId = data.host_id;
+    this.roomId = data.room_id || null;
+
+    sessionStorage.setItem('qb_role', 'host');
+    sessionStorage.setItem('qb_host_id', this.hostId);
+    sessionStorage.setItem('qb_pin', this.pin);
+
+    if (this.roomId) {
+        sessionStorage.setItem('qb_room_id', this.roomId);
+    }
 
         document.getElementById('nav-pin-val').innerText = this.pin;
         document.getElementById('room-pin-badge').classList.remove('hidden');

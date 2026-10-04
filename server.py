@@ -571,7 +571,8 @@ async def websocket_endpoint(ws: WebSocket):
                     }))
 
                     player_list = [p.to_dict() for p in room.players.values()]
-                    await room.broadcast_all({
+                    # Only the host needs the full lobby list. Avoid O(n^2) fan-out to all players.
+                    await room.broadcast_host({
                         "type": "player_list_update",
                         "players": player_list,
                         "count": len(room.get_connected_players())
@@ -832,8 +833,18 @@ async def websocket_endpoint(ws: WebSocket):
                     if len(connected) > 0 and len(room.current_answers) >= len(connected):
                         asyncio.create_task(finish_question(room, reason="all_answered"))
             elif client_role == "host":
-                # Do NOT terminate room just because host disconnected/refreshed
+                # Host disconnect ends the session by design: no host progress is persisted.
                 room.host_ws = None
+                room.is_closed = True
+                room.state = "CLOSED"
+                closed_rooms[room.pin] = {"room_id": room.room_id, "closed_at": time.time()}
+                closed_rooms[room.room_id] = {"pin": room.pin, "closed_at": time.time()}
+                await room.broadcast_all_players({
+                    "type": "room_closed",
+                    "message": "主持人已離開，本局已結束。請等待主持人重新建立新遊戲。"
+                })
+                if client_pin in rooms:
+                    del rooms[client_pin]
     except Exception as e:
         logger.error(f"Unexpected error in websocket: {e}")
 
