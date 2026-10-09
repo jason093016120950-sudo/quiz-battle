@@ -222,16 +222,16 @@
   "image": null
 },
 {
-	"id": 18,
-    "question": "請問電影「國四英雄傳」的男主角（如下圖）是？\n（提示：北大行政系一位非常帥的教授）",
-    "options": [
-      {"key": "A", "text": "郭富城"},
-      {"key": "B", "text": "彭于晏"},
-      {"key": "C", "text": "黃朝盟"},
-      {"key": "D", "text": "吳彥祖"}
-    ],
-    "correctAnswer": "C",
-    "timeLimit": 20,
-    "image": "/static/images/q15_photo.png"
+  "id": 18,
+  "question": "依據國立臺北大學公共行政暨政策學系官方履歷，下列何者未列為黃朝盟教授的經歷？",
+  "options": [
+    {"key": "A", "text": "國立臺北大學民意與選舉研究中心主任"},
+    {"key": "B", "text": "新北市選舉委員會委員"},
+    {"key": "C", "text": "臺北市政府研究發展考核委員會委員"},
+    {"key": "D", "text": "考試院公務人員考試典試委員"}
+  ],
+  "correctAnswer": "C",
+  "timeLimit": 20,
+  "image": null
   }
 ]
